@@ -56,15 +56,15 @@ pop <- within(pop,
               age.edu <- interaction(age,edu)
               })
 
-mrp.yes <- mrp(yesvote ~ age + race + gender + party + edu + region
-               + reg.gender + reg.party + gender.party + age.edu,
+mrp.yes <- mrp(yesvote ~ age + race + gender + party + edu + region,
+              # + reg.gender + reg.party + gender.party + age.edu,
                data = data,
                formula.pop.update= .~.-wave,
                population=pop,
                pop.weights="sum")
 
-mrp.no <- mrp(novote ~ age + race + gender + party + edu + region
-              + reg.gender + reg.party + gender.party + age.edu,
+mrp.no <- mrp(novote ~ age + race + gender + party + edu + region,
+              # + reg.gender + reg.party + gender.party + age.edu,
               data = data,
               formula.pop.update= .~.-wave,
               population=pop,
